@@ -46,7 +46,7 @@
     }
 
     table tr:nth-child(odd) {
-      background-color: #e0f2ff;
+      background-color: #81c5f5;
     }
 
     .cell-red {
@@ -99,24 +99,26 @@
     }
 
     function initClient() {
-      gapi.client.init({
-        apiKey: API_KEY,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES
-      }).then(function () {
-        displaySheetData();
-      }, function (error) {
-        console.error(JSON.stringify(error, null, 2));
-      });
-    }
+  gapi.client.init({
+    apiKey: API_KEY,
+    discoveryDocs: DISCOVERY_DOCS,
+    scope: SCOPES
+  }).then(function () {
+    // Don't call displaySheetData() here
+  }, function (error) {
+    console.error(JSON.stringify(error, null, 2));
+  });
+}
 
     function checkPassword() {
   const passwordInput = document.getElementById("password-input");
   const passwordError = document.getElementById("password-error");
   const projectDataWrapper = document.getElementById("project-data-wrapper");
+  const passwordWrapper = document.getElementById("password-wrapper");
 
   if (passwordInput.value === "PRA") {
     passwordError.style.display = "none";
+    passwordWrapper.style.display = "none";
     projectDataWrapper.style.display = "block";
     displaySheetData();
   } else {
