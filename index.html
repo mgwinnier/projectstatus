@@ -10,8 +10,7 @@
 
   gtag('config', 'G-S2Z3XPZWQP');
 </script>
-  <title>Example Client Project Status Update</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Southland Project Status</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -40,7 +39,7 @@
     }
 
     th, td {
-      padding: 5px;
+      padding: 10px;
       text-align: left;
       font-size: 14px;
     }
@@ -76,10 +75,9 @@
       font-weight: bold;
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
       .container {
         margin-top: 40px;
-        padding: 10px;
       }
       h1 {
         font-size: 20px;
@@ -87,49 +85,23 @@
       }
       th, td {
         font-size: 12px;
-        padding: 3px;
-      }
-      .password-input-label {
-        display: none;
-      }
-      .password-input-wrapper {
-        position: relative;
-      }
-      .toggle-password-btn {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        background-color: transparent;
-        border: none;
-        outline: none;
-      }
-      .toggle-password-btn img {
-        max-height: 20px;
+        padding: 5px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
+    <div class="container">
         <img src="logo.png" alt="Company Logo" class="logo">
         <h1>Provident Realty Advisors, Inc</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 password-input-wrapper">
-        <label for="password-input" class="password-input-label">Enter Password:</label>
-        <input type="password" id="password-input">
-        <button onclick="checkPassword()" class="toggle-password-btn">
-          <img src="toggle.png" alt="Toggle Password Visibility">
-        </button>
-        <p id="password-error" style="color: red; display: none;">Incorrect password. Please try again.</p>
-      </div>
-    </div>
-    <div class="row" id="project-data-wrapper" style="display: none;">
-        <div class="col-12 table-responsive">
+        <div id="password-wrapper">
+          <label for="password-input">Enter Password:</label>
+          <input type="password" id="password-input">
+          <button onclick="checkPassword()">Submit</button>
+          <p id="password-error" style="color: red; display: none;">Incorrect password. Please try again.</p>
+        </div>
+        <div id="project-data-wrapper" style="display: none;">
+        <div class="table-responsive">
         <table id="project-data" class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
@@ -148,10 +120,7 @@
             <tbody>
               <!-- Data will be populated here -->
             </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+          </table>
 
   <script>
     // Replace with your API_KEY
