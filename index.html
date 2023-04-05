@@ -23,6 +23,10 @@
 
     .container {
       margin-top: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
 
     .table-responsive {
@@ -35,14 +39,16 @@
     }
 
     th, td {
-      padding: 5px;
+      padding: 10px;
       text-align: left;
+      font-size: 14px;
     }
 
     th {
       background-color: #f2f2f2;
       text-align: center;
       vertical-align: middle;
+      font-weight: bold;
     }
 
     .logo {
@@ -51,30 +57,51 @@
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
     table tr:nth-child(odd) {
-      background-color: #81c5f5;
+      background-color: #f7f7f7;
+    }
+
+    table tr:hover {
+      background-color: #e0e0e0;
     }
 
     .cell-red {
-        color: red;
+      color: red;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin-top: 40px;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      th, td {
+        font-size: 12px;
+        padding: 5px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png" alt="Company Logo" class="logo">
-    <h1>Provident Realty Advisors, Inc</h1>
-    <div id="password-wrapper">
-      <label for="password-input">Enter Password:</label>
-      <input type="password" id="password-input">
-      <button onclick="checkPassword()">Submit</button>
-      <p id="password-error" style="color: red; display: none;">Incorrect password. Please try again.</p>
-    </div>
-    <div id="project-data-wrapper" style="display: none;">
-    <div class="table-responsive">
+    <div class="container">
+        <img src="logo.png" alt="Company Logo" class="logo">
+        <h1>Provident Realty Advisors, Inc</h1>
+        <div id="password-wrapper">
+          <label for="password-input">Enter Password:</label>
+          <input type="password" id="password-input">
+          <button onclick="checkPassword()">Submit</button>
+          <p id="password-error" style="color: red; display: none;">Incorrect password. Please try again.</p>
+        </div>
+        <div id="project-data-wrapper" style="display: none;">
+        <div class="table-responsive">
         <table id="project-data" class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
