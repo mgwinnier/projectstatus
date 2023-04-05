@@ -45,7 +45,7 @@
       font-size: 1.8rem;
     }
 
-    table tr:nth-child(even) {
+    table tr:nth-child(odd) {
       background-color: #e0f2ff;
     }
 
@@ -58,7 +58,14 @@
 <body>
   <div class="container">
     <img src="logo.png" alt="Company Logo" class="logo">
-    <h1>Provident Realty Advisors, Inc</h1>
+    <h1>Client Name Here</h1>
+    <div id="password-wrapper">
+      <label for="password-input">Enter Password:</label>
+      <input type="password" id="password-input">
+      <button onclick="checkPassword()">Submit</button>
+      <p id="password-error" style="color: red; display: none;">Incorrect password. Please try again.</p>
+    </div>
+    <div id="project-data-wrapper" style="display: none;">
     <div class="table-responsive">
         <table id="project-data" class="table table-striped table-bordered table-hover">
             <thead>
@@ -102,6 +109,20 @@
         console.error(JSON.stringify(error, null, 2));
       });
     }
+
+    function checkPassword() {
+  const passwordInput = document.getElementById("password-input");
+  const passwordError = document.getElementById("password-error");
+  const projectDataWrapper = document.getElementById("project-data-wrapper");
+
+  if (passwordInput.value === "PRA") {
+    passwordError.style.display = "none";
+    projectDataWrapper.style.display = "block";
+    displaySheetData();
+  } else {
+    passwordError.style.display = "block";
+  }
+}
 
     function displaySheetData() {
   const sheetId = '1iUC78Rg3sVqA8rd-ICu2ShFs3lNbR072RJTofo53Ojc';
